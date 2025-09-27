@@ -4,7 +4,6 @@
   "main": "index.js",
   "scripts": {
     "test": "mocha ./test/**/*.test.js --timeout=200000 --reporter mochawesome"
-    "test": "mocha ./test/**/*.test.js --reporter mochawesome --timeout=200000"
   },
   "keywords": [],
   "author": "",
