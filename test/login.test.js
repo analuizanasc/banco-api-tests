@@ -1,17 +1,16 @@
 const request = require('supertest')
 const { expect } = require('chai')
+const postLogin = require('../fixtures/postLogin.json')
 
 describe('Login', () => {
     describe('POST/login', () => {
         it('Deve retornar 200 com um token em string com uso de credenciais válidas', async () => {
+            const bodyLogin = {...postLogin}
 
             const resposta = await request(process.env.BASE_URL)
                 .post('/login')
                 .set('Content-Type', 'application/json')
-                .send({
-                        'username': 'julio.lima',
-                        'senha': '123456'
-                    })
+                .send(bodyLogin)
 
             expect(resposta.status).to.equal(200)
             expect(resposta.body.token).to.be.a('string')
